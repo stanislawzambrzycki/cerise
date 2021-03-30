@@ -825,8 +825,55 @@ a:active:hover {
   margin: 0.3rem;
 }
 
+.dropdown .v-menu__content {
+  border: solid 1px #e1b238;
+  width: fit-content;
+}
+
+.dropdown .v-expansion-panels,
+.dropdown .v-expansion-panel,
+.dropdown .v-expansion-panel-header {
+  background-color: black !important;
+}
+
+.dropdown .v-expansion-panel-header {
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  width: 100%;
+  background-image: linear-gradient(to right, #e1b238, #f5f8b1, #e1b238, #f5f8b1, #e1b238, #e1b238);
+  background-size: 100%;
+  background-repeat: repeat;
+  background-clip: text;
+  color: rgba(225, 178, 56, 0.45);
+  border: solid 1px black;
+}
+
+.dropdown .v-expansion-panel-header p {
+  white-space: nowrap;
+}
+
+.dropdown .v-expansion-panel-header .chevron-down {
+  color: #e1b238;
+}
+
+.dropdown .v-expansion-panel-header:hover, .dropdown .v-expansion-panel-header:focus {
+  border-top: solid 1px #e1b238;
+  border-bottom: solid 1px #e1b238;
+}
+
+.dropdown .v-list-item {
+  padding: 8px 16px;
+  border: solid 1px black;
+}
+
+.dropdown .v-list-item:hover, .dropdown .v-list-item:focus {
+  border-top: solid 1px #e1b238;
+  border-bottom: solid 1px #e1b238;
+}
+
 .dropdown .v-list-item__title {
   font-size: 0.85rem;
+  cursor: pointer;
 }
 
 .dropdown .v-menu__content {
@@ -849,10 +896,6 @@ a:active:hover {
   background-repeat: repeat;
   background-clip: text;
   color: rgba(225, 178, 56, 0.45);
-}
-
-.dropdown .chevron-right {
-  color: #e1b238;
 }
 
 .dropdown .display {

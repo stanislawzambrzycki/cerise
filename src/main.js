@@ -8,7 +8,7 @@ import {
   faArrowAltCircleUp,
   faPhoneSquareAlt,
   faAt,
-  faChevronRight,
+  faChevronDown,
 } from "@fortawesome/free-solid-svg-icons";
 import { faFontAwesome } from "@fortawesome/free-brands-svg-icons";
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
@@ -19,7 +19,7 @@ library.add(
   faInstagram,
   faPhoneSquareAlt,
   faAt,
-  faChevronRight,
+  faChevronDown,
   faFontAwesome
 );
 

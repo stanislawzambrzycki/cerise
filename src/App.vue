@@ -52,8 +52,11 @@
             </li>
             <li class="nav-item dropdown">
               <v-menu
-                tile
+                hover
                 open-on-hover
+                :close-on-content-click="false"
+                :close-on-click="false"
+                :elevation="24"
                 attach
                 offset-y
                 origin="top center"
@@ -77,75 +80,60 @@
                   </v-btn>
                 </template>
                 <v-list>
-                  <v-menu
-                    tile
-                    attach=".dropdown-btn"
-                    offset-y
-                    origin="top left"
-                    transition="scale-transition"
-                    nudge-right="80vw"
-                  >
-                    <template v-slot:activator="{ on, attrs }">
-                      <v-btn
-                        depressed
-                        text
-                        v-bind="attrs"
-                        v-on="on"
-                        class="dropdown-btn"
-                      >
-                        <v-list-item>
-                          <v-list-item-title>
-                            <p>
-                              Makijaż permamentny
-                              <v-btn icon dark large
-                                ><font-awesome-icon
-                                  :icon="['fas', 'chevron-right']"
-                                  class="chevron-right"
-                              /></v-btn>
-                            </p>
-                          </v-list-item-title>
-                        </v-list-item>
-                      </v-btn>
-                    </template>
-                    <v-list>
-                      <v-list-item>
-                        <v-list-item-title
-                          >Usuwanie makijażu<br />
-                          permamentnego i tatuażu</v-list-item-title
-                        >
-                      </v-list-item>
-                      <v-list-item>
-                        <v-list-item-title
-                          >Makijaż permanentny brwii</v-list-item-title
-                        >
-                      </v-list-item>
+                  <v-expansion-panels flat tile hover>
+                    <v-expansion-panel open-on-hover>
+                      <v-expansion-panel-header ripple hide-actions
+                        ><p>Makijaż permanentny</p>
+                        <p>
+                          <v-btn icon dark large
+                            ><font-awesome-icon
+                              :icon="['fas', 'chevron-down']"
+                              class="chevron-down"
+                          /></v-btn></p
+                      ></v-expansion-panel-header>
 
-                      <v-list-item>
-                        <v-list-item-title
-                          >Makijaż permanentny ust</v-list-item-title
-                        >
-                      </v-list-item>
-                      <v-list-item>
-                        <v-list-item-title
-                          >Makijaż permanentny oczu</v-list-item-title
-                        >
-                      </v-list-item>
-                    </v-list>
-                  </v-menu>
-                  <v-list-item>
+                      <v-expansion-panel-content>
+                        <v-list>
+                          <v-list-item ripple>
+                            <v-list-item-title
+                              >Usuwanie makijażu<br />
+                              permamentnego i tatuażu</v-list-item-title
+                            >
+                          </v-list-item>
+                          <v-list-item ripple>
+                            <v-list-item-title
+                              >Makijaż permanentny brwii</v-list-item-title
+                            >
+                          </v-list-item>
+
+                          <v-list-item ripple>
+                            <v-list-item-title
+                              >Makijaż permanentny ust</v-list-item-title
+                            >
+                          </v-list-item>
+                          <v-list-item ripple>
+                            <v-list-item-title
+                              >Makijaż permanentny oczu</v-list-item-title
+                            >
+                          </v-list-item>
+                        </v-list>
+                      </v-expansion-panel-content>
+                    </v-expansion-panel>
+                  </v-expansion-panels>
+                  <v-list-item ripple>
                     <v-list-item-title
                       >Makijaż okolicznościowy</v-list-item-title
                     >
                   </v-list-item>
 
-                  <v-list-item>
+                  <v-list-item ripple>
                     <v-list-item-title
                       >Jak będę wyglądać<br />
                       po zabiegu?</v-list-item-title
                     >
                   </v-list-item>
 
-                  <v-list-item>
+                  <v-list-item ripple>
                     <v-list-item-title>Makijaż ślubny</v-list-item-title>
                   </v-list-item>
                   <!-- <v-list-item v-for="(item, index) in items" :key="index">
