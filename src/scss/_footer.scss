@@ -1,0 +1,102 @@
+footer {
+  font-size: 1.1rem;
+
+  @media screen and (max-width: 500px) {
+    font-size: 1.5rem;
+  }
+
+  @media screen and (max-width: 360px) {
+    font-size: 1rem;
+  }
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-top: solid 1px;
+  border-image: linear-gradient(
+      to right,
+      $primary-color,
+      $accent,
+      $primary-color,
+      $accent
+    )
+    100% 1;
+  background-size: 100%;
+  background-repeat: repeat;
+  background-clip: border;
+  margin-top: auto;
+  padding: 1em 0;
+  text-align: center;
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    @media screen and (min-width: 760px) {
+      max-width: 1400px;
+      display: grid;
+      justify-items: center;
+      align-items: flex-start;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1f 0.3fr;
+      grid-template-areas:
+        "working-hours adress contact"
+        "footer-nav footer-nav footer-nav";
+
+      font-size: 0.9rem;
+      .contact {
+        grid-area: contact;
+      }
+
+      .working-hours {
+        grid-area: working-hours;
+      }
+
+      h3 {
+        font-size: 1.2rem;
+      }
+
+      .footer-nav {
+        grid-area: footer-nav;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        // font-size: 0.7rem;
+
+        li {
+          margin: 0 0.5em;
+        }
+      }
+
+      .button {
+        display: none;
+      }
+    }
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+  ul {
+    list-style: none;
+    margin: 1em;
+  }
+
+  .button {
+    border: none;
+    color: $primary-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+
+    &:hover {
+      @include easeOut;
+      color: $icon-hover;
+    }
+  }
+}

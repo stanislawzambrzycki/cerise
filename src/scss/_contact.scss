@@ -1,0 +1,101 @@
+.contact {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  // background-image: linear-gradient(
+  //   to right,
+  //   $primary-color,
+  //   $accent,
+  //   $primary-color,
+  //   $accent
+  // );
+
+  // @media screen and (min-width: 760px) {
+  //   background-image: linear-gradient(
+  //     to right,
+  //     $primary-color,
+  //     $primary-color,
+  //     $accent,
+  //     $primary-color,
+  //     $accent
+  //   );
+  // }
+  // background-size: 100%;
+  // background-repeat: repeat;
+  // background-clip: text;
+  // color: $primary-color-transparent;
+
+  h3 {
+    font-size: 1.1rem;
+  }
+  ul {
+    list-style: none;
+    margin: 1rem;
+  }
+
+  .contact-container {
+    max-width: 800px;
+
+    @media screen and (min-width: 500px) {
+      font-size: 0.9rem;
+    }
+    @media screen and (min-width: 760px) {
+      font-size: 1rem;
+    }
+
+    img {
+      width: 60%;
+      @media screen and (min-width: 500px) {
+        width: 110%;
+      }
+      @media screen and (min-width: 600px) {
+        width: 100%;
+      }
+      @media screen and (min-width: 680px) {
+        width: 90%;
+      }
+      @media screen and (min-width: 760px) {
+        width: 80%;
+      }
+    }
+
+    @media screen and (min-width: 500px) {
+      display: grid;
+      justify-items: center;
+      align-items: start;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-areas:
+        "portrait adress"
+        "portrait contact"
+        "portrait working-hours";
+
+      img {
+        grid-area: portrait;
+        padding: 0 1em 1em 1em;
+        margin: 0;
+        align-self: center;
+      }
+
+      p {
+        padding: 0 1em;
+      }
+
+      ul {
+        margin: 0;
+      }
+
+      .adress {
+        grid-area: adress;
+      }
+      .contact {
+        grid-area: contact;
+      }
+
+      .working-hours {
+        grid-area: working-hours;
+      }
+    }
+  }
+}

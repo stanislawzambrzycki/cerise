@@ -1,8 +1,33 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from "vue";
+import App from "./App.vue";
+import vuetify from "./plugins/vuetify";
 
-Vue.config.productionTip = false
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import {
+  faArrowAltCircleUp,
+  faPhoneSquareAlt,
+  faAt,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
+import { faFontAwesome } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
+
+library.add(
+  faArrowAltCircleUp,
+  faFacebook,
+  faInstagram,
+  faPhoneSquareAlt,
+  faAt,
+  faChevronRight,
+  faFontAwesome
+);
+
+Vue.component("font-awesome-icon", FontAwesomeIcon);
+
+Vue.config.productionTip = false;
 
 new Vue({
-  render: h => h(App),
-}).$mount('#app')
+  vuetify,
+  render: (h) => h(App),
+}).$mount("#app");

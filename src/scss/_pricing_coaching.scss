@@ -1,0 +1,22 @@
+.pricing,
+.coaching {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 100%;
+
+    @media screen and (min-width: 500px) {
+      width: 85%;
+    }
+
+    @media screen and (min-width: 620px) {
+      width: 75%;
+    }
+
+    @media screen and (min-width: 720px) {
+      width: 60%;
+    }
+  }
+}

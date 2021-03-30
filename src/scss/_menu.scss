@@ -1,0 +1,289 @@
+@keyframes pulse {
+  0% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+
+  2% {
+    transform: scale(2);
+    opacity: 0.04;
+  }
+
+  4% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+
+  5% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+
+  7% {
+    transform: scale(1.8);
+    opacity: 0.04;
+  }
+
+  9% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+
+  10% {
+    transform: scale(1);
+    opacity: 0;
+  }
+
+  12% {
+    transform: scale(1.6);
+    opacity: 0.04;
+  }
+
+  14% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.hamburger-menu {
+  padding: 9px 0;
+  margin-top: 1em;
+  position: relative;
+  z-index: 100;
+  @media screen and (max-height: 420px) {
+    margin: 5vh 0;
+  }
+
+  @media screen and (min-width: 700px) {
+    display: none;
+  }
+}
+
+.pulse {
+  ::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    background: $primary-color-transparent;
+
+    animation: pulse 35000ms infinite linear;
+  }
+}
+
+// Menu button is inside a header element
+
+.menu-btn {
+  cursor: pointer;
+  @include easeOut;
+
+  height: 35px;
+  width: 35px;
+
+  .btn-line {
+    &:nth-child(1) {
+      width: 35px;
+      height: 3px;
+      margin: 0 0 5px 0;
+      background-image: linear-gradient(to right, $accent, $primary-color);
+      @include easeOut;
+    }
+
+    &:nth-child(2) {
+      width: 35px;
+      height: 3px;
+      margin: 0 0 5px 0;
+      background-image: linear-gradient(
+        to right,
+        $primary-color,
+        $accent,
+        $primary-color
+      );
+      transition: all 0.5s ease-out;
+    }
+
+    &:nth-child(3) {
+      width: 35px;
+      height: 3px;
+      margin: 0;
+      background-image: linear-gradient(to right, $primary-color, $accent);
+      @include easeOut;
+    }
+  }
+
+  // Rotate Into X With Menu Lines
+  &.close {
+    transform: rotate(180deg);
+
+    .btn-line {
+      // Line 1 - Rotate
+      &:nth-child(1) {
+        // transform: rotate(45deg) translate(7.5px, 7.5px);
+        transform: translate(3px, 24px) rotate(-45deg);
+      }
+      // Line 2 - Hide
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      // Line 3 - Rotate
+      &:nth-child(3) {
+        // transform: rotate(135deg) translate(-7px, 6.5px);
+        transform: translate(3px, 8px) rotate(45deg);
+      }
+    }
+  }
+}
+
+// Menu Overlay
+.menu {
+  position: fixed;
+  // z-index: 2;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  visibility: hidden;
+  // overflow: hidden;
+  z-index: 1;
+
+  &.show {
+    visibility: visible;
+  }
+
+  &-nav {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    // float: left;
+    width: auto;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0;
+    margin: 0;
+    padding: 37vh 0;
+    @media screen and (min-width: 800px) {
+      padding: 36vh 0;
+    }
+    @media screen and (min-width: 980px) {
+      padding: 38vh 0;
+    }
+
+    @media screen and (max-height: 420px) {
+      padding: 15vh 0;
+    }
+    background: $secondary-color;
+    list-style: none;
+    //Slide in from top
+    // transform: translate3d(0, -100%, 0);
+    //Slide in from left
+    transform: translate3d(-100%, 0, 0);
+    @include ease;
+
+    &.show {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+  }
+
+  .nav-item {
+    // transform: translate3d(-900px, 0, 0);
+    // If slide in from left
+    transform: translate3d(-200%, 0, 0);
+    opacity: 0;
+    @include ease;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.show {
+      //Slide in from right
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+
+    &.current > a {
+      color: $primary-color;
+    }
+  }
+
+  .nav-link {
+    display: inline-block;
+    position: relative;
+    font-size: 1.4rem;
+
+    @media screen and (max-height: 500px) {
+      font-size: 1.2rem;
+    }
+    // @media screen and (max-height: 420px) {
+    //   font-size: 1rem;
+    // }
+
+    // @media screen and (max-height: 380px) {
+    //   font-size: 0.8rem;
+    // }
+    text-transform: uppercase;
+    padding-top: 1rem;
+    font-weight: 300;
+    text-decoration: none;
+    text-align: center;
+    @include easeOut;
+
+    background-image: linear-gradient(
+      to right,
+      $primary-color,
+      $accent,
+      $primary-color,
+      $accent
+    );
+    background-size: 100%;
+    background-repeat: repeat;
+    background-clip: text;
+    color: $primary-color-transparent;
+
+    // &:hover {
+    //   color: $secondary-color;
+    // }
+  }
+}
+
+// Delay each nav item slide by 0.09s
+@for $x from 1 through 6 {
+  .nav-item:nth-child(#{$x}) {
+    transition-delay: $x * 0.12s;
+  }
+}
+
+.v-menu {
+  display: block !important;
+}
+
+.theme--light.v-list {
+  background: $secondary-color !important;
+}
+
+.v-list-item__title {
+  background-image: linear-gradient(
+    to right,
+    $primary-color,
+    $primary-color,
+    $accent,
+    $primary-color,
+    $accent
+  );
+
+  background-size: 100%;
+  background-repeat: repeat;
+  background-clip: text;
+  color: $primary-color-transparent;
+}

@@ -1,0 +1,27 @@
+.gallery {
+  width: 100%;
+
+  ul {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    @media screen and (min-width: 700px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+
+  li {
+    a:hover {
+      border-bottom: 1px solid transparent;
+    }
+  }
+
+  p {
+    text-align: center;
+  }
+}
